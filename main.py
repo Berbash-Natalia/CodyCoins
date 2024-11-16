@@ -1,4 +1,5 @@
 import pgzrun
+import sys
 from random import randint
 
 
@@ -44,21 +45,25 @@ def the_end():
     game_over = True
 
 
+
 def update():
     global score
-    speed = 5
-    if keyboard.left and cody.x > 40:
+    speed = 20
+    if game_over:
+        # Прекращаем обновление игры, если игра завершена
+        return
+
+    if keyboard.A and cody.x > 40:
         cody.x -= speed
-    if keyboard.right and cody.x < 360:
+    if keyboard.D and cody.x < 360:
         cody.x += speed
-    if keyboard.up and cody.y > 40:
+    if keyboard.W and cody.y > 40:
         cody.y -= speed
-    if keyboard.down and cody.y < 360:
+    if keyboard.S and cody.y < 360:
         cody.y += speed
     if cody.colliderect(coin):
         score += 10
-        beep.play()
         place_coin()
 
-clock.schedule(the_end,10)
+clock.schedule_unique(the_end, 6.0)
 pgzrun.go()
