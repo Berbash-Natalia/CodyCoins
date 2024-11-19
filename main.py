@@ -52,7 +52,6 @@ def update():
     if game_over:
         # Прекращаем обновление игры, если игра завершена
         return
-
     if keyboard.A and cody.x > 40:
         cody.x -= speed
     if keyboard.D and cody.x < 360:
