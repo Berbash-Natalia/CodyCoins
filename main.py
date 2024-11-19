@@ -2,7 +2,7 @@ import pgzrun
 import sys
 from random import randint
 
-
+TITLE="Cody's Coins"
 
 WIDTH = 400
 HEIGHT = 400
@@ -48,7 +48,7 @@ def the_end():
 
 def update():
     global score
-    speed = 20
+    speed = 5
     if game_over:
         # Прекращаем обновление игры, если игра завершена
         return
